@@ -1,20 +1,87 @@
-<body style="
-margin:0;
-font-family: Arial, sans-serif;
-background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-color: white;
-">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Atal Tinkering Labs (ATL)</title>
 
-<div style="
-max-width: 900px;
-margin: auto;
-padding: 30px;
-background: rgba(255,255,255,0.1);
-border-radius: 15px;
-box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+}
 
-<h1 style="text-align:center;">Welcome to Atal Tinkering Labs (ATLs)</h1>
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+hr {
+  border: 1px solid rgba(255,255,255,0.3);
+  margin: 30px 0;
+}
+
+/* MAIN DOMAIN BUTTON */
+.domain-btn {
+  width: 100%;
+  padding: 16px;
+  margin: 12px 0;
+  font-size: 18px;
+  background: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.domain-btn:hover {
+  background: #16a085;
+}
+
+/* SUB BUTTON */
+.sub-btn {
+  width: 90%;
+  padding: 12px;
+  margin: 8px auto;
+  display: block;
+  font-size: 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.sub-btn:hover {
+  background: #2980b9;
+}
+
+/* CONTENT SECTION */
+.section {
+  display: none;
+  padding: 15px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  margin: 10px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Welcome to Atal Tinkering Labs (ATLs)</h1>
 
 <p>
 Atal Tinkering Labs (ATLs) are innovation workspaces established in schools across India
@@ -24,53 +91,88 @@ through hands-on learning and experimentation.
 </p>
 
 <p>
-This platform provides structured learning resources, practical activities, and project ideas
-to help students explore emerging technologies and transform ideas into innovations.
+This platform provides structured learning resources, practical activities,
+and project ideas to help students explore emerging technologies and
+transform ideas into innovations.
 </p>
 
-<hr style="border-color: rgba(255,255,255,0.3);">
+<hr>
 
 <h2>Learning Domains at ATL</h2>
 
-<h3>🔌 Basic Electronics</h3>
-<p>Introduction to electronic components, current, voltage, resistance, and simple circuits.</p>
+<!-- BASIC ELECTRONICS -->
+<button class="domain-btn" onclick="toggle('basic')">🔌 Basic Electronics</button>
+<div id="basic" class="section">
 
-<h3>⚡ Intermediate Electronics</h3>
-<p>Understanding sensors, transistors, ICs, and circuit design with real-world applications.</p>
+  <button class="sub-btn" onclick="show('intro')">Introduction to Electronics</button>
+  <button class="sub-btn" onclick="show('components')">Electronic Components</button>
+  <button class="sub-btn" onclick="show('ohms')">Ohm’s Law</button>
 
-<h3>🚀 Advanced Electronics</h3>
-<p>Advanced topics such as microcontrollers, automation, robotics, and embedded systems.</p>
+  <div id="intro" class="section">
+    <h3>Introduction to Electronics</h3>
+    <p>
+      Electronics is the study of electrical circuits that involve active electrical components
+      such as resistors, capacitors, diodes, and transistors.
+    </p>
+  </div>
 
-<h3>🖨️ 3D Printing</h3>
-<p>Design thinking, 3D modeling, and rapid prototyping using 3D printers.</p>
+  <div id="components" class="section">
+    <h3>Electronic Components</h3>
+    <p>
+      Basic components include Resistors, Capacitors, Diodes, LEDs, Batteries,
+      Switches, and Breadboards.
+    </p>
+  </div>
 
-<h3>🧩 Blix Kit</h3>
-<p>Hands-on mechanical construction and engineering concepts using Blix educational kits.</p>
-
-<h3>🔭 Telescope</h3>
-<p>Basic astronomy concepts, sky observation, and understanding celestial objects.</p>
-
-<h3>🔬 Microscope</h3>
-<p>Exploring the microscopic world through biological and material science experiments.</p>
-
-<h3>💡 Projects</h3>
-<p>Student-driven ATL projects focusing on real-life problem solving and innovation.</p>
-
-<h3>🌱 Innovation Ideas</h3>
-<p>Idea generation, design thinking, and innovation challenges.</p>
-
-<h3>🏆 Science Fair Projects</h3>
-<p>Guidance and ideas for national and international science exhibitions.</p>
-
-<h3>🚁 Drone Technology</h3>
-<p>Understanding drone components, flight principles, and programming basics.</p>
-
-<h3>🌐 Internet of Things (IoT)</h3>
-<p>Connecting devices using sensors and cloud platforms.</p>
-
-<h3>🧑‍💻 Scratch Coding</h3>
-<p>Block-based programming to introduce coding fundamentals.</p>
+  <div id="ohms" class="section">
+    <h3>Ohm’s Law</h3>
+    <p>
+      Ohm’s Law states that Voltage (V) = Current (I) × Resistance (R).
+    </p>
+  </div>
 
 </div>
 
+<!-- INTERMEDIATE ELECTRONICS -->
+<button class="domain-btn" onclick="toggle('intermediate')">⚡ Intermediate Electronics</button>
+<div id="intermediate" class="section">
+  <p>
+    Learn about Sensors, Transistors, Integrated Circuits (ICs),
+    and practical circuit design techniques.
+  </p>
+</div>
+
+<!-- ADVANCED ELECTRONICS -->
+<button class="domain-btn" onclick="toggle('advanced')">🚀 Advanced Electronics</button>
+<div id="advanced" class="section">
+  <p>
+    Explore Microcontrollers, Robotics, Automation,
+    Embedded Systems, and real-world innovation projects.
+  </p>
+</div>
+
+<!-- 3D PRINTING -->
+<button class="domain-btn" onclick="toggle('printing')">🖨️ 3D Printing</button>
+<div id="printing" class="section">
+  <p>
+    Learn 3D design, modeling, slicing, and rapid prototyping using 3D printers.
+  </p>
+</div>
+
+</div>
+
+<script>
+function toggle(id) {
+  let section = document.getElementById(id);
+  section.style.display = section.style.display === "block" ? "none" : "block";
+}
+
+function show(id) {
+  let all = document.querySelectorAll("#basic .section");
+  all.forEach(div => div.style.display = "none");
+  document.getElementById(id).style.display = "block";
+}
+</script>
+
 </body>
+</html>
