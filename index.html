@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Atal Tinkering Labs (ATL)</title>
+<title>ATL – Basic Electronics</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color: white;
 }
 
@@ -18,61 +18,46 @@ body {
   padding: 30px;
   background: rgba(255,255,255,0.1);
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-h1, h2 {
-  text-align: center;
+h1,h2,h3 { text-align: center; }
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
 }
 
-hr {
-  border: 1px solid rgba(255,255,255,0.3);
-  margin: 30px 0;
-}
-
-/* MAIN DOMAIN BUTTON */
 .domain-btn {
   width: 100%;
-  padding: 16px;
-  margin: 12px 0;
+  padding: 15px;
   font-size: 18px;
   background: #1abc9c;
   color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  text-align: left;
+  margin: 10px 0;
 }
 
-.domain-btn:hover {
-  background: #16a085;
-}
-
-/* SUB BUTTON */
 .sub-btn {
   width: 90%;
   padding: 12px;
   margin: 8px auto;
   display: block;
-  font-size: 16px;
   background: #3498db;
   color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
 }
 
-.sub-btn:hover {
-  background: #2980b9;
-}
-
-/* CONTENT SECTION */
 .section {
   display: none;
-  padding: 15px;
   background: rgba(255,255,255,0.15);
+  padding: 20px;
   border-radius: 10px;
-  margin: 10px 0;
+  margin-top: 10px;
+}
+
+svg {
+  width: 200px;
+  display: block;
+  margin: 15px auto;
 }
 </style>
 </head>
@@ -81,96 +66,106 @@ hr {
 
 <div class="container">
 
-<h1>Welcome to Atal Tinkering Labs (ATLs)</h1>
+<h1>Basic Electronics – ATL</h1>
 
-<p>
-Atal Tinkering Labs (ATLs) are innovation workspaces established in schools across India
-under the Atal Innovation Mission (AIM) by NITI Aayog.
-ATLs encourage students to develop curiosity, creativity, and problem-solving skills
-through hands-on learning and experimentation.
-</p>
-
-<p>
-This platform provides structured learning resources, practical activities,
-and project ideas to help students explore emerging technologies and
-transform ideas into innovations.
-</p>
-
-<hr>
-
-<h2>Learning Domains at ATL</h2>
-
-<!-- BASIC ELECTRONICS -->
 <button class="domain-btn" onclick="toggle('basic')">🔌 Basic Electronics</button>
+
 <div id="basic" class="section">
 
-  <button class="sub-btn" onclick="show('intro')">Introduction to Electronics</button>
-  <button class="sub-btn" onclick="show('components')">Electronic Components</button>
-  <button class="sub-btn" onclick="show('ohms')">Ohm’s Law</button>
+<button class="sub-btn" onclick="show('voltage')">⚡ Voltage</button>
+<button class="sub-btn" onclick="show('current')">🔄 Current</button>
+<button class="sub-btn" onclick="show('components')">🔧 Components</button>
+<button class="sub-btn" onclick="show('ohms')">🧮 Ohm’s Law</button>
 
-  <div id="intro" class="section">
-    <h3>Introduction to Electronics</h3>
-    <p>
-      Electronics is the study of electrical circuits that involve active electrical components
-      such as resistors, capacitors, diodes, and transistors.
-    </p>
-  </div>
+<!-- VOLTAGE -->
+<div id="voltage" class="section">
+<h3>Voltage</h3>
+<p>
+Voltage is the electrical pressure that pushes electrons through a circuit.
+</p>
+<p><b>Unit:</b> Volt (V)</p>
 
-  <div id="components" class="section">
-    <h3>Electronic Components</h3>
-    <p>
-      Basic components include Resistors, Capacitors, Diodes, LEDs, Batteries,
-      Switches, and Breadboards.
-    </p>
-  </div>
+<svg viewBox="0 0 200 100">
+<line x1="40" y1="20" x2="40" y2="80" stroke="white" stroke-width="4"/>
+<line x1="70" y1="30" x2="70" y2="70" stroke="white" stroke-width="4"/>
+<text x="100" y="55" fill="white">Battery</text>
+</svg>
+</div>
 
-  <div id="ohms" class="section">
-    <h3>Ohm’s Law</h3>
-    <p>
-      Ohm’s Law states that Voltage (V) = Current (I) × Resistance (R).
-    </p>
-  </div>
+<!-- CURRENT -->
+<div id="current" class="section">
+<h3>Electric Current</h3>
+<p>
+Current is the flow of electric charge (electrons) in a circuit.
+</p>
+<p><b>Unit:</b> Ampere (A)</p>
+
+<svg viewBox="0 0 200 100">
+<line x1="20" y1="50" x2="180" y2="50" stroke="white" stroke-width="4"/>
+<polygon points="150,40 180,50 150,60" fill="white"/>
+<text x="60" y="80" fill="white">Electron Flow</text>
+</svg>
+</div>
+
+<!-- COMPONENTS -->
+<div id="components" class="section">
+<h3>Basic Electronic Components</h3>
+
+<p><b>Resistor</b> – Limits current</p>
+<p>Unit: Ohm (Ω)</p>
+<svg viewBox="0 0 200 60">
+<polyline points="20,30 40,10 60,50 80,10 100,50 120,10 140,30"
+ stroke="white" stroke-width="4" fill="none"/>
+</svg>
+
+<p><b>Capacitor</b> – Stores charge</p>
+<p>Unit: Farad (F)</p>
+<svg viewBox="0 0 200 60">
+<line x1="80" y1="10" x2="80" y2="50" stroke="white" stroke-width="4"/>
+<line x1="120" y1="10" x2="120" y2="50" stroke="white" stroke-width="4"/>
+</svg>
+
+<p><b>LED</b> – Emits light</p>
+<svg viewBox="0 0 200 80">
+<polygon points="70,40 110,20 110,60" fill="white"/>
+<line x1="110" y1="20" x2="140" y2="10" stroke="white"/>
+<line x1="110" y1="60" x2="140" y2="70" stroke="white"/>
+</svg>
 
 </div>
 
-<!-- INTERMEDIATE ELECTRONICS -->
-<button class="domain-btn" onclick="toggle('intermediate')">⚡ Intermediate Electronics</button>
-<div id="intermediate" class="section">
-  <p>
-    Learn about Sensors, Transistors, Integrated Circuits (ICs),
-    and practical circuit design techniques.
-  </p>
+<!-- OHMS LAW -->
+<div id="ohms" class="section">
+<h3>Ohm’s Law</h3>
+<p>
+Ohm’s Law shows the relationship between Voltage, Current, and Resistance.
+</p>
+
+<p><b>Formula:</b> V = I × R</p>
+
+<svg viewBox="0 0 200 140">
+<circle cx="100" cy="60" r="40" stroke="white" stroke-width="3" fill="none"/>
+<text x="95" y="30" fill="white">V</text>
+<text x="65" y="75" fill="white">I</text>
+<text x="120" y="75" fill="white">R</text>
+</svg>
 </div>
 
-<!-- ADVANCED ELECTRONICS -->
-<button class="domain-btn" onclick="toggle('advanced')">🚀 Advanced Electronics</button>
-<div id="advanced" class="section">
-  <p>
-    Explore Microcontrollers, Robotics, Automation,
-    Embedded Systems, and real-world innovation projects.
-  </p>
-</div>
-
-<!-- 3D PRINTING -->
-<button class="domain-btn" onclick="toggle('printing')">🖨️ 3D Printing</button>
-<div id="printing" class="section">
-  <p>
-    Learn 3D design, modeling, slicing, and rapid prototyping using 3D printers.
-  </p>
 </div>
 
 </div>
 
 <script>
-function toggle(id) {
-  let section = document.getElementById(id);
-  section.style.display = section.style.display === "block" ? "none" : "block";
+function toggle(id){
+  let e = document.getElementById(id);
+  e.style.display = e.style.display==="block" ? "none" : "block";
 }
 
-function show(id) {
-  let all = document.querySelectorAll("#basic .section");
-  all.forEach(div => div.style.display = "none");
-  document.getElementById(id).style.display = "block";
+function show(id){
+  document.querySelectorAll("#basic .section").forEach(
+    s => s.style.display="none"
+  );
+  document.getElementById(id).style.display="block";
 }
 </script>
 
